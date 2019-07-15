@@ -1,0 +1,102 @@
+{% extends "users/base.html" %}
+
+{% block content %}
+
+
+{% load staticfiles %}
+<style>
+
+ h1 {
+        text-align: center;
+        margin-bottom: 40px;
+
+    }
+    .squabbcenterpane {
+        display: inline-block;
+        width: 1500;
+        height: 1000;
+        margin-left: 200px;
+        margin-top: 100px;
+        padding-bottom: 60px;
+
+
+
+    }
+
+    .squabbcenterpane .btn {
+        margin-bottom: 80px;
+
+
+    }
+
+    .squabbcenterpane .squabbcenterpaneone .squabbcenterpanetwo {
+        display: inline-block;
+    }
+
+    .squabbmajoritem {
+        margin-left: 130px;
+
+    }
+
+
+ 
+        img {
+            /* This section calls the slideInFromrightt animation we defined above */
+            animation: 2s ease-out .3s 1 lightSpeedIn;
+        }
+
+
+
+
+       h1 {
+            /* This section calls the slideInFromrightt animation we defined above */
+            animation: 5s ease-out .3s 1 fadeInDown;
+        }
+
+
+
+
+</style>
+
+
+        <h1 class="display-4">Listen in on your fan! </h1>
+        <h1 class="display-5">Try out a professional or Comic voice! </h1>
+
+
+
+        <div class="squabbmajoritem">
+            <button type="button" class="btn btn-outline-primary btn-lg">Listen in on Clakkle</button>
+            <button type="button" class="btn btn-outline-warning btn-lg">Pause Clakkle</button>
+            <button type="button" class="btn btn-outline-success btn-lg">Rewind Clakkle</button>
+
+
+        </div>
+
+
+        <div class="squabbcenterpane">
+            <h1>Listen through a different voice!</h1>
+            <div class="squabbcenterpaneone">
+                <button type="button" class="btn btn-outline-basic btn-lg">Your Voice</button>
+
+                <button type="button" class="btn btn-outline-basic btn-lg">Cartoon Character</button>
+
+
+                <button type="button" class="btn btn-outline-basic btn-lg">Movie Star</button>
+
+
+
+            </div>
+            <div class="squabbcenterpanetwo">
+                <button type="button" class="btn btn-outline-basic btn-lg">Foreign Language</button>
+
+                <button type="button" class="btn btn-outline-basic btn-lg">Local</button>
+
+                <button type="button" class="btn btn-outline-basic btn-lg">Translate</button>
+
+
+            </div>
+
+        </div>
+ </div>
+
+{% endblock content %}

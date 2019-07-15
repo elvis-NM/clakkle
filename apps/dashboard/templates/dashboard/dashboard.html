@@ -1,0 +1,737 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+        integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <title>Dashboard</title>
+
+    <style>
+        body {
+            background-color: sandybrown;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 20px;
+            color: whitesmoke;
+            width: auto;
+            height: auto;
+
+        }
+
+        .container {
+            background-color: rgb(95, 4, 4);
+            width: 1090px;
+            height: auto;
+            margin: auto;
+            padding: 40px 10px 60px 10px;
+            border: 0px solid white;
+            border-radius: 0px;
+            margin-bottom: 0px;
+            margin-top: 0px;
+        }
+
+
+
+
+        .jumbotron {
+            background-color: black;
+            padding: 10px 10px 20px 10px;
+            width: auto;
+            height: auto;
+            margin-bottom: 0px;
+            border-radius: 0px;
+        }
+
+        footer.fixed-bottom,
+        dl,
+        dd {
+            color: rgb(14, 81, 126);
+            display: inline-block;
+            vertical-align: top;
+            text-align: center;
+            padding: 2px 30px 2px 30px;
+            font-size: 18px;
+
+        }
+
+
+        footer.fixed-bottom {
+            background-color: azure;
+            width: auto;
+            height: 40px;
+        }
+
+
+
+        .dashboardheader,
+        ul,
+        li {
+            padding: 30px 0px 10px 0px;
+            display: inline-block;
+            vertical-align: top;
+            color: white;
+            font-size: 28px;
+            font-family: monospace;
+            margin-left: 50px;
+        }
+
+        .dashboardheader {
+            margin-left: 250px;
+            margin-top: 0px;
+        }
+
+
+
+        .middlepane .middlecenterpane {
+            display: inline-block;
+            vertical-align: top;
+            width: 320px;
+            height: 250px;
+            margin-left: 15px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+
+        .centerpane {
+            display: inline-block;
+            vertical-align: top;
+            width: 360px;
+            height: 250px;
+            margin-left: 5px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+
+
+
+
+        .bottompane .bottomcenterpane {
+            display: inline-block;
+            vertical-align: top;
+            width: 347px;
+            height: 250px;
+            margin-top: 40px;
+            margin-left: 0px;
+            padding-bottom: 80px;
+
+
+
+        }
+
+        .bottompane .bottomcenterpane .bottomdownpane {
+            display: inline-block;
+            width: 171px;
+            height: 100px;
+
+
+
+        }
+
+        .bottompane .bottomcenterpane .bottomcenterpanestats {
+            display: inline-block;
+            width: 140px;
+            height: 100px;
+
+
+
+        }
+
+        .bottomcenterpanestats {
+            display: inline-block;
+            vertical-align: top;
+            margin-top: 0px;
+
+
+        }
+
+
+
+
+        h1 {
+            text-align: center;
+            margin-bottom: 60px;
+            font-family: 'Courier New', Courier, monospace;
+
+
+        }
+
+        h2 {
+            font-family: 'Courier New', Courier, monospace;
+
+
+        }
+
+        .majoritem .btn {
+
+            margin-left: 60px;
+
+
+        }
+
+
+
+
+
+
+        @-webkit-keyframes bounce {
+
+            from,
+            20%,
+            53%,
+            80%,
+            to {
+                -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+                animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+                -webkit-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
+            }
+
+            40%,
+            43% {
+                -webkit-animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+                animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+                -webkit-transform: translate3d(0, -30px, 0);
+                transform: translate3d(0, -30px, 0);
+            }
+
+            70% {
+                -webkit-animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+                animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+                -webkit-transform: translate3d(0, -15px, 0);
+                transform: translate3d(0, -15px, 0);
+            }
+
+            90% {
+                -webkit-transform: translate3d(0, -4px, 0);
+                transform: translate3d(0, -4px, 0);
+            }
+        }
+
+        @keyframes bounce {
+
+            from,
+            20%,
+            53%,
+            80%,
+            to {
+                -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+                animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+                -webkit-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
+            }
+
+            40%,
+            43% {
+                -webkit-animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+                animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+                -webkit-transform: translate3d(0, -30px, 0);
+                transform: translate3d(0, -30px, 0);
+            }
+
+            70% {
+                -webkit-animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+                animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+                -webkit-transform: translate3d(0, -15px, 0);
+                transform: translate3d(0, -15px, 0);
+            }
+
+            90% {
+                -webkit-transform: translate3d(0, -4px, 0);
+                transform: translate3d(0, -4px, 0);
+            }
+        }
+
+        .bounce {
+            -webkit-animation-name: bounce;
+            animation-name: bounce;
+            -webkit-transform-origin: center bottom;
+            transform-origin: center bottom;
+        }
+
+
+        img {
+            /* This section calls the slideInFromrightt animation we defined above */
+            animation: 1s ease-out .3s 20 bounce;
+        }
+
+
+
+        @-webkit-keyframes fadeInDown {
+            from {
+                opacity: 0;
+                -webkit-transform: translate3d(0, -100%, 0);
+                transform: translate3d(0, -100%, 0);
+            }
+
+            to {
+                opacity: 1;
+                -webkit-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                -webkit-transform: translate3d(0, -100%, 0);
+                transform: translate3d(0, -100%, 0);
+            }
+
+            to {
+                opacity: 1;
+                -webkit-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
+            }
+        }
+
+        .fadeInDown {
+            -webkit-animation-name: fadeInDown;
+            animation-name: fadeInDown;
+        }
+
+        h1 {
+            /* This section calls the slideInFromrightt animation we defined above */
+            animation: 5s ease-out .3s 1 fadeInDown;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="hoverDiv" class="jumbotron">
+
+        <a href="{% url 'users:logo' %}">
+            <img src='{% static "users/images/ogo.png" %}'>
+        </a>
+
+        <ul class="dashboardheader">
+            <a href="{% url 'users:home' %}">
+                <li>Home</li>
+            </a>
+
+            <a href="{% url 'dashboard:index' %}">
+                <li>Dashboard</li>
+            </a>
+
+            {% if request.user.is_authenticated %}
+
+            <a href="{% url 'users:edit' %}">
+                <li>Edit</li>
+            </a>
+
+            <a href="{% url 'users:logout' %}">
+
+                <a href="{% url 'dashboard:sitemap' %}">
+                    <li>sitemap</li>
+                    <a href="{% url 'users:logout' %}">
+                        <li>Logout</li>
+                    </a>
+                    {% else %}
+                    <a href="{% url 'login' %}">
+                        <li>Login</li>
+                    </a>
+                    {% endif %}
+
+
+
+        </ul>
+
+    </div>
+
+
+
+    <div class="container">
+
+        <h1 class="display-4">Welcome back
+            {% if request.user.is_authenticated %}
+            {{request.user.first_name}}
+            {% else %}
+            Guest
+            {% endif %}
+        </h1>
+        <div class="majoritem">
+            {% if request.user.is_authenticated %}
+            <button type="button" class="btn btn-outline-danger btn-lg" id="btnRecord">Record Clakkle</button>
+            {% else %}
+            <a href="{% url 'login' %}?next=/" class="btn btn-outline-danger btn-lg">Record Clakkle</a>
+            {% endif %}
+
+            <button type="button" class="btn btn-outline-success btn-lg">Play Clakkle</button>
+            <button type="button" class="btn btn-outline-primary btn-lg">Rewind Clakkle</button>
+            <button type="button" class="btn btn-outline-warning btn-lg">Delete Clakkle</button>
+        </div>
+
+
+
+        <div class="middlepane">
+
+
+            <div class="middlecenterpane">
+                <h2 class="display-6"> Recent Clakkles </h2>
+                {% for item in recordings %}
+                <h3>
+                    {% if request.user.is_authenticated and request.user.pk == item.creator.pk %}
+
+                    <audio style="displa:none;" id="{{item.pk}}" src="/media{{item.voicefile}}"></audio>
+                    <button type="button" class="btn btn-outline-success btn-lg"
+                        onclick="document.getElementById('{{item.pk}}').play()">Play</button>
+                    recording
+
+                    <a href="{% url 'squabb:delete_audio' %}?id={{item.pk}}">delete</a>
+
+                    <a href="{% url 'dashboard:fan' %}">fan</a>
+                    {% endif %}
+
+                </h3>
+                {% endfor %}
+
+                {% if request.user.is_authenticated %}
+                <a href="{% url 'squabb:yoursquabbs' %}">Your Clakkle list....</a>
+                {% else %}
+                <a href="{% url 'login' %}">Your Clakkle list....</a>
+                {% endif %}
+
+            </div>
+
+            <div class="centerpane">
+                <h2>Following</h2>
+
+                <h3>
+                    <button type="button" class="btn btn-outline-success  btn-lg">Play</button>
+                    Anderson
+                    <a href="#">9</a>
+                    <a href="#">unlike</a>
+                    <a href="#">delete</a>
+                </h3>
+                <h3>
+                    <button type="button" class="btn btn-outline-success  btn-lg">Play</button>
+                    Jennifer
+                    <a href="#">7</a>
+                    <a href="#">unlike</a>
+                    <a href="#">delete</a>
+                </h3>
+                <h3>
+                    <button type="button" class="btn btn-outline-success  btn-lg">Play</button>
+                    Paullette
+                    <a href="#">3</a>
+                    <a href="#">unlike</a>
+                    <a href="#">delete</a>
+                </h3>
+
+
+                {% if request.user.is_authenticated %}
+                <a href="{% url 'dashboard:fanpage' %}">Fanpage...</a> <br>
+                <a href="{% url 'dashboard:followingpage' %}">Followingpage...</a>
+                {% else %}
+                <a href="{% url 'login' %}">Fanpage...</a> <br>
+                <a href="{% url 'login' %}">Followingpage...</a>
+                {% endif %}
+
+            </div>
+
+            <div class="middlecenterpane">
+                <h2 class="display-6">Your Interest</h2>
+
+                <h3>
+                    <button type="button" class="btn btn-outline-primary btn-lg">Listen</button>
+                    Science
+                    <a href="#">delete</a>
+                </h3>
+                <h3>
+                    <button type="button" class="btn  btn-outline-primary btn-lg">Listen</button>
+                    Politics
+                    <a href="#">delete</a>
+                </h3>
+                <h3>
+                    <button type="button" class="btn  btn-outline-primary btn-lg">Listen</button>
+                    Movies
+                    <a href="#">delete</a>
+                </h3>
+
+                {% if request.user.is_authenticated %}
+                <a href="{% url 'interests:yourint' %}">Your Clakkle Interests...</a>
+                {% else %}
+                <a href="{% url 'login' %}">Your Clakkle Interests...</a>
+                {% endif %}
+
+
+            </div>
+
+        </div>
+
+
+        <div class="bottompane">
+            <div class="bottomcenterpane">
+                <h2 class="display-6">Popular Clakkles</h2>
+                <div class="bottomdownpane">
+                    <h5>
+                        Cult..
+                        <a href="#">800</a>
+                        <a href="#">like</a>
+                        <a href="#">follow</a>
+                    </h5>
+
+
+                    <h5>
+                        Poli..
+                        <a href="#">300</a>
+                        <a href="#">like</a>
+                        <a href="#">follow</a>
+                    </h5>
+
+                    <h5>
+                        Stre..
+                        <a href="#">900</a>
+                        <a href="#">like</a>
+                        <a href="#">follow</a>
+                    </h5>
+                </div>
+                <div class="bottomdownpane">
+                    <h5>
+                        Reli..
+                        <a href="#">1000</a>
+                        <a href="#">like</a>
+                        <a href="#">follow</a>
+                    </h5>
+
+
+                    <h5>
+                        Heal..
+                        <a href="#">500</a>
+                        <a href="#">like</a>
+                        <a href="#">follow</a>
+                    </h5>
+
+                    <h5>
+                        Cine..
+                        <a href="#">700</a>
+                        <a href="#">like</a>
+                        <a href="#">follow</a>
+                    </h5>
+                </div>
+                <div class="bottomdownpane">
+                    <h5>
+                        Tenn..
+                        <a href="#">1000</a>
+                        <a href="#">like</a>
+                        <a href="#">follow</a>
+                    </h5>
+
+
+                    <h5>
+                        Appl..
+                        <a href="#">900</a>
+                        <a href="#">like</a>
+                        <a href="#">follow</a>
+                    </h5>
+
+                    <h5>
+                        Talk..
+                        <a href="#">950</a>
+                        <a href="#">like</a>
+                        <a href="#">follow</a>
+                    </h5>
+                </div>
+
+                <a href="{% url 'squabb:popular' %}">All Clakkles....</a>
+            </div>
+
+
+            <div class="bottomcenterpane">
+                <div class="bottomcenterpanestats">
+                    <h3>Your Stats</h3>
+                    <h6>circle chart</h6>
+                    <a href="#">more</a>
+                </div>
+                <div class="bottomcenterpanestats">
+                    <h3>Global Stats</h3>
+                    <h6>circle chart</h6>
+
+                    <a href="#">help</a>
+                </div>
+
+            </div>
+
+
+            <div class="bottomcenterpane">
+                <h2 class="display-6">Interests!</h2>
+                <div class="bottomdownpane">
+                    <h5>
+                        <a href="#">Add </a>
+                        Global politics
+                    </h5>
+                    <h5>
+                        <a href="#">Add </a>
+                        NFL Football
+                    </h5>
+                    <h5>
+                        <a href="#">Add </a>
+                        NCAA Football
+                    </h5>
+                </div>
+
+                <div class="bottomdownpane">
+                    <h5>
+                        <a href="#">Add</a>
+                        Religion Global
+                    </h5>
+                    <h5>
+                        <a href="#">Add</a>
+                        Religion National
+                    </h5>
+                    <h5>
+                        <a href="#">Add</a>
+                        Healthcare
+                    </h5>
+                </div>
+                <div class="bottomdownpane">
+                    <h5>
+                        <a href="#">Add</a>
+                        MeToo Mve
+                    </h5>
+                    <h5>
+                        <a href="#">Add</a>
+                        Washinton DC
+                    </h5>
+                    <h5>
+                        <a href="#">Add</a>
+                        Sunday Recap
+                    </h5>
+                </div>
+
+                <a href="{% url 'interests:availableint' %}">Available Interest..</a>
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+    <footer class="fixed-bottom">
+
+        <dl id="footer">
+            <a href="{% url 'users:home' %}">
+                <dd>Home</dd>
+            </a>
+            <a href="{% url 'users:logo' %}">
+                <dd>About</dd>
+            </a>
+            <a href="">
+                <dd>Contact</dd>
+            </a>
+
+            {% if request.user.is_authenticated %}
+
+            <a href="{% url 'dashboard:index' %}">
+                <dd>Dashboard </dd>
+            </a>
+
+            <a href="{% url 'products:create' %}">
+                <dd>Store </dd>
+            </a>
+            <a href="{% url 'dashboard:sitemap' %}">
+                <dd> sitemap </dd>
+            </a>
+
+
+            {% else %}
+
+            <a href="{% url 'users:signup' %}">
+                <dd> Sign Up </dd>
+            </a>
+            <a href="{% url 'login' %}">
+                <dd> Login </dd>
+            </a>
+            {% endif %}
+
+        </dl>
+
+
+    </footer>
+
+    <script src="/static/audio_recorder/js/WebAudioRecorder.min.js"></script>
+    <script src="/static/audio_recorder/js/app.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
+        integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
+        integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+        crossorigin="anonymous"></script>
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script type="text/javascript">
+
+        function uploadAudio(audioBlob) {
+            var fd = new FormData();
+            fd.append('file_name', 'audio.wav');
+            fd.append('recording', audioBlob);
+            $.ajax({
+                type: "POST",
+                url: "{% url 'squabb:save_audio' %}",
+                data: fd,
+                processData: false,
+                contentType: false
+            }).done(function (data) {
+                console.log(data);
+                window.location.reload();
+            });
+        }
+
+
+        $(document).ready(function () {
+            var recording_status = false;
+            var mediaRecorder = null;
+
+            $("#btnRecord").on('click', function () {
+                if (recording_status == false) {
+                    recording_status = true;
+                    $("#btnRecord").text("Stop Recording");
+                    navigator.mediaDevices.getUserMedia({ audio: true }).then(stream => {
+                        mediaRecorder = new MediaRecorder(stream);
+                        mediaRecorder.start();
+
+                        const audioChunks = [];
+                        mediaRecorder.addEventListener("dataavailable", event => {
+                            audioChunks.push(event.data);
+                        });
+
+                        mediaRecorder.addEventListener("stop", () => {
+                            const audioBlob = new Blob(audioChunks);
+                            const audioUrl = URL.createObjectURL(audioBlob);
+                            console.log(audioUrl);
+                            console.log(audioBlob);
+                            uploadAudio(audioBlob);
+                            //const audio = new Audio(audioUrl);
+                            //audio.play();
+                        });
+                    });
+                    window.setTimeout(function () {
+                        if (recording_status)
+                            mediaRecorder.stop();
+                    }, 120000);
+                }
+                else {
+                    recording_status = false;
+                    mediaRecorder.stop();
+                    $("#btnRecord").text("Record Clakkle");
+                }
+            });
+        });
+
+    </script>
+
+
+</body>
+
+</html>

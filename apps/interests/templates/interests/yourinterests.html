@@ -1,0 +1,582 @@
+{% extends "users/base.html" %}
+
+{% block title %}available interest {% endblock title %}
+
+{% load staticfiles %}
+
+{% block content %}
+
+<style>
+    .container {
+        height: 1100px;
+
+    }
+
+    .bottomcenterpane {
+        display: inline-block;
+        vertical-align: top;
+        width: auto;
+        height: auto;
+    }
+
+    .bottomcenterpane .bottomdownpane {
+        display: inline-block;
+        width: 230px;
+        height: 200px;
+        margin-left: 0px;
+        text-align: center;
+        margin-bottom: 30px;
+
+    }
+
+    .interestheader h3.display-5 {
+        display: inline-block;
+        vertical-align: top;
+        margin-left: 80px;
+
+    }
+
+    h1 {
+        text-align: center;
+        margin-bottom: 30px;
+        font-family: 'Courier New', Courier, monospace;
+
+    }
+
+    img {
+        /* This section calls the slideInFromrightt animation we defined above */
+        animation: 2s ease-out .3s 1 lightSpeedIn;
+    }
+
+    h1 {
+        /* This section calls the slideInFromrightt animation we defined above */
+        animation: 5s ease-out .3s 1 fadeInDown;
+    }
+</style>
+
+<h1 class="display-4">Your Interests !
+</h1>
+
+
+
+
+
+<div class="bottomcenterpane">
+
+    <div class="bottomdownpane">
+        <h2>Politics</h2>
+        <h5>
+            <a href="#">Add </a>
+            Democrats
+        </h5>
+        <h5>
+            <a href="#">Add </a>
+            Republicans
+        </h5>
+        <h5>
+            <a href="#">Add</a>
+            States
+        </h5>
+        <h5>
+            <a href="#">Add</a>
+            Federal
+        </h5>
+        <h5>
+            <a href="#">Add</a>
+            Governors
+        </h5>
+        <h5>
+            <a href="#">Add</a>
+            Senate
+        </h5>
+        <h5>
+            <a href="#">Add</a>
+            House
+        </h5>
+        <h5>
+            <a href="#">Add</a>
+            Mayor
+        </h5>
+        <h5>
+            <a href="#">Add</a>
+            School
+        </h5>
+    </div>
+
+
+
+
+    <div class="bottomdownpane">
+
+        <h2>
+            Kitchen
+        </h2>
+        <h5>
+            <a href="#">Add</a>
+            Cooking
+        </h5>
+        <h5>
+            <a href="#">Add</a>
+            Baking
+        </h5>
+        <h5>
+            <a href="#">Add</a>
+            Roasting
+        </h5>
+        <h5>
+            <a href="#">Add </a>
+            French
+        </h5>
+        <h5>
+            <a href="#">Add</a>
+            British
+        </h5>
+        <h5>
+            <a href="#">Add </a>
+            Louisiana
+        </h5>
+        <h5>
+            <a href="#">Add </a>
+            Italian
+        </h5>
+        <h5>
+            <a href="#">Add </a>
+            Cameroonian
+        </h5>
+        <h5>
+            <a href="#">Add</a>
+            Nigerian
+        </h5>
+    </div>
+
+
+
+    <div class="bottomdownpane">
+
+        <h2>Entertainment!</h2>
+        <h5>
+            <a href="#">Add </a>
+            Music
+        </h5>
+        <h5>
+            <a href="#">Add</a>
+            Country
+        </h5>
+        <h5>
+            <a href="#">Add </a>
+            Rock
+        </h5>
+        <h5>
+            <a href="#">Add </a>
+            Christian
+        </h5>
+        <h5>
+            <a href="#">Add</a>
+            Jazz
+        </h5>
+        <h5>
+            <a href="#">Add </a>
+            Hip Hop
+        </h5>
+        <h5>
+            <a href="#">Add </a>
+            Soul
+        </h5>
+        <h5>
+            <a href="#">Add</a>
+            Guiter
+        </h5>
+        <h5>
+            <a href="#">Add </a>
+            Piano
+        </h5>
+    </div>
+
+
+    <div class="bottomdownpane">
+        <h2>Health</h2>
+        <h5>
+            <a href="#">Add</a>
+            Exercise
+        </h5>
+        <h5>
+            <a href="#">Add </a>
+            Jogging
+        </h5>
+        <h5>
+            <a href="#">Add</a>
+            Running
+        </h5>
+        <h5>
+            <a href="#">Add</a>
+            Gym
+        </h5>
+        <h5>
+            <a href="#">Add</a>
+            Ballet
+        </h5>
+        <h5>
+            <a href="#">Add</a>
+            Aerobics
+        </h5>
+        <h5>
+            <a href="#">Add</a>
+            Swimming
+        </h5>
+        <h5>
+            <a href="#">Add</a>
+            Weight lifting
+        </h5>
+        <h5>
+            <a href="#">Add</a>
+            Tennis
+        </h5>
+    </div>
+
+
+
+
+    <div class="bottomdownpane">
+
+        <h2>
+            Sports
+        </h2>
+        <h5>
+            <a href="#">Add</a>
+            NFL
+        </h5>
+        <h5>
+            <a href="#">Add</a>
+            NCAA
+        </h5>
+        <h5>
+            <a href="#">Add</a>
+            Soccer
+        </h5>
+        <h5>
+            <a href="#">Add</a>
+            MLBS
+        </h5>
+        <h5>
+            <a href="#">Add</a>
+            Boxing
+        </h5>
+        <h5>
+            <a href="#">Add </a>
+            Volley ball
+        </h5>
+        <h5>
+            <a href="#">Add </a>
+            Running
+        </h5>
+        <h5>
+            <a href="#">Add</a>
+            Fishing
+        </h5>
+        <h5>
+            <a href="#">Add</a>
+            Hunting
+        </h5>
+    </div>
+
+
+
+    <div class="bottomdownpane">
+
+        <h2>Education!</h2>
+        <h5>
+            <a href="#">Add </a>
+            Math
+        </h5>
+        <h5>
+            <a href="#">Add </a>
+            Geography
+        </h5>
+        <h5>
+            <a href="#">Add </a>
+            Physics
+        </h5>
+        <h5>
+            <a href="#">Add </a>
+            Biology
+        </h5>
+        <h5>
+            <a href="#">Add </a>
+            Chemistry
+        </h5>
+        <h5>
+            <a href="#">Add </a>
+            Religion
+        </h5>
+        <h5>
+            <a href="#">Add </a>
+            English
+        </h5>
+        <h5>
+            <a href="#">Add </a>
+            Literiture
+        </h5>
+        <h5>
+            <a href="#">Add </a>
+            History
+        </h5>
+    </div>
+    <div class="bottomdownpane">
+        <h2>Pgramming </h2>
+        <h5>
+            <a href="#">Add</a>
+            Java
+        </h5>
+        <h5>
+            <a href="#">Add </a>
+            Javascript
+        </h5>
+        <h5>
+            <a href="#">Add</a>
+            Python
+        </h5>
+        <h5>
+            <a href="#">Add</a>
+            Csharp
+        </h5>
+        <h5>
+            <a href="#">Add</a>
+            CSS
+        </h5>
+        <h5>
+            <a href="#">Add</a>
+            HTML
+        </h5>
+        <h5>
+            <a href="#">Add</a>
+            Ruby
+        </h5>
+        <h5>
+            <a href="#">Add</a>
+            Golang
+        </h5>
+        <h5>
+            <a href="#">Add</a>
+            C++
+        </h5>
+    </div>
+
+
+
+
+    <div class="bottomdownpane">
+
+        <h2>
+            World
+        </h2>
+        <h5>
+            <a href="#">Add </a>
+            Africa
+        </h5>
+        <h5>
+            <a href="#">Add </a>
+            Europe
+        </h5>
+        <h5>
+            <a href="#">Add </a>
+            North America
+        </h5>
+        <h5>
+            <a href="#">Add</a>
+            South America
+        </h5>
+        <h5>
+            <a href="#">Add </a>
+            Central America
+        </h5>
+        <h5>
+            <a href="#">Add</a>
+            Africa
+        </h5>
+        <h5>
+            <a href="#">Add</a>
+            Islands
+        </h5>
+        <h5>
+            <a href="#">Add</a>
+            Australia
+        </h5>
+        <h5>
+            <a href="#">Add </a>
+            Middle East
+        </h5>
+    </div>
+
+
+
+    <div class="bottomdownpane">
+
+        <h2>Peolpe!</h2>
+        <h5>
+            <a href="#">Add</a>
+            Local
+        </h5>
+        <h5>
+            <a href="#">Add</a>
+            Foreign
+        </h5>
+        <h5>
+            <a href="#">Add </a>
+            Politics
+        </h5>
+        <h5>
+            <a href="#">Add </a>
+            Religion
+        </h5>
+        <h5>
+            <a href="#">Add</a>
+            Popular
+        </h5>
+        <h5>
+            <a href="#">Add</a>
+            Hollywood
+        </h5>
+        <h5>
+            <a href="#">Add </a>
+            Bollywood
+        </h5>
+        <h5>
+            <a href="#">Add </a>
+            Africa
+        </h5>
+        <h5>
+            <a href="#">Add</a>
+            Asia
+        </h5>
+    </div>
+    <div class="bottomdownpane">
+        <h2>Automotive</h2>
+        <h5>
+            <a href="#">Add</a>
+            Trucks
+        </h5>
+        <h5>
+            <a href="#">Add</a>
+            Sedans
+        </h5>
+        <h5>
+            <a href="#">Add </a>
+            Classics
+        </h5>
+        <h5>
+            <a href="#">Add </a>
+            Trailers
+        </h5>
+        <h5>
+            <a href="#">Add</a>
+            Imports
+        </h5>
+        <h5>
+            <a href="#">Add</a>
+            Local
+        </h5>
+        <h5>
+            <a href="#">Add </a>
+            Hot
+        </h5>
+        <h5>
+            <a href="#">Add</a>
+            Outdated
+        </h5>
+        <h5>
+            <a href="#">Add </a>
+            Concept
+        </h5>
+    </div>
+
+
+
+
+    <div class="bottomdownpane">
+
+        <h2>
+            International
+        </h2>
+        <h5>
+            <a href="#">Add</a>
+            Sports
+        </h5>
+        <h5>
+            <a href="#">Add</a>
+            Politics
+        </h5>
+        <h5>
+            <a href="#">Add </a>
+            Food
+        </h5>
+        <h5>
+            <a href="#">Add</a>
+            Language
+        </h5>
+        <h5>
+            <a href="#">Add</a>
+            Geography
+        </h5>
+        <h5>
+            <a href="#">Add </a>
+            People
+        </h5>
+        <h5>
+            <a href="#">Add</a>
+            Movies
+        </h5>
+        <h5>
+            <a href="#">Add</a>
+            TV
+        </h5>
+        <h5>
+            <a href="#">Add</a>
+            Music
+        </h5>
+    </div>
+
+
+
+    <div class="bottomdownpane">
+
+        <h2>Social Media!</h2>
+        <h5>
+            <a href="#">Add </a>
+            Yahoo
+        </h5>
+        <h5>
+            <a href="#">Add </a>
+            Google
+        </h5>
+        <h5>
+            <a href="#">Add </a>
+            Facebook
+        </h5>
+        <h5>
+            <a href="#">Add</a>
+            Instagram
+        </h5>
+        <h5>
+            <a href="#">Add </a>
+            Youtube
+        </h5>
+        <h5>
+            <a href="#">Add </a>
+            AOL
+        </h5>
+        <h5>
+            <a href="#">Add </a>
+            Reddit
+        </h5>
+        <h5>
+            <a href="#">Add</a>
+            Snapchat
+        </h5>
+        <h5>
+            <a href="#">Add </a>
+            Twitter
+        </h5>
+    </div>
+
+</div>
+{% endblock content %}

@@ -1,0 +1,144 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Logo</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+
+    <style>
+        body {
+            background-color: sandybrown;
+            font-family: monospace;
+            color: whitesmoke;
+        }
+
+        .container-fluid {
+            background-color: rgb(95, 4, 4);
+            width: 800px;
+            height: auto;
+            margin: 0 auto;
+            padding: 10px 10px 5px 10px;
+            border: 6px solid whitesmoke;
+            border-radius: 25px;
+            margin-bottom: 120px;
+            margin-top: 60px;
+
+        }
+
+        .box {
+            display: inline-block;
+            vertical-align: top;
+            margin-left: 40px;
+            width: 800px;
+            height: 1200px;
+            border-block-start-width: 2px;
+            border-radius: 25px;
+            padding: 5px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            font-size: 17px;
+
+
+        }
+
+        h3 {
+            text-align: right;
+            margin-bottom: 0px;
+            padding-right: 100px;
+            padding-bottom: 20px
+        }
+
+        .logo {
+            margin-left: 0px;
+
+        }
+
+        img {
+            height: 700px;
+            width: 700px;
+            align-items: center;
+        }
+
+
+
+        @keyframes rubberBand {
+            from {
+                -webkit-transform: scale3d(1, 1, 1);
+                transform: scale3d(1, 1, 1);
+            }
+
+            30% {
+                -webkit-transform: scale3d(1.25, 0.75, 1);
+                transform: scale3d(1.25, 0.75, 1);
+            }
+
+            40% {
+                -webkit-transform: scale3d(0.75, 1.25, 1);
+                transform: scale3d(0.75, 1.25, 1);
+            }
+
+            50% {
+                -webkit-transform: scale3d(1.15, 0.85, 1);
+                transform: scale3d(1.15, 0.85, 1);
+            }
+
+            65% {
+                -webkit-transform: scale3d(0.95, 1.05, 1);
+                transform: scale3d(0.95, 1.05, 1);
+            }
+
+            75% {
+                -webkit-transform: scale3d(1.05, 0.95, 1);
+                transform: scale3d(1.05, 0.95, 1);
+            }
+
+            to {
+                -webkit-transform: scale3d(1, 1, 1);
+                transform: scale3d(1, 1, 1);
+            }
+        }
+
+        .rubberBand {
+            -webkit-animation-name: rubberBand;
+            animation-name: rubberBand;
+        }
+
+        img {
+            /* This section calls the slideInFromrightt animation we defined above */
+            animation: 1s ease-out .3s 10 rubberBand;
+        }
+    </style>
+</head>
+
+<body>
+
+    `
+    <div class="container-fluid" class="form-group">
+
+        <a href="{% url 'users:home' %}">
+            <img src='{% static "users/images/ogo.png" %}'>
+        </a>
+
+
+    </div>
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

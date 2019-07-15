@@ -1,0 +1,256 @@
+{% extends "users/base.html" %}
+
+{% block title %}ecommerce{% endblock title %}
+
+{% load staticfiles %}
+
+{% block content %}
+
+
+
+<style>
+    .container {
+        height: 1300px;
+    }
+
+    .a {
+        padding: 0px 0px 0px 0px;
+    }
+
+    .bottompane {
+        display: inline-block;
+        vertical-align: top;
+        width: 980px;
+        height: 490px;
+        margin-left: 10px;
+        margin-top: 60px;
+
+    }
+
+    .bottompane .bottomleftpane {
+        display: inline-block;
+        vertical-align: top;
+        width: 300px;
+        height: 300px;
+        margin-left: 10px;
+        padding-left: 0px;
+
+    }
+
+    .bottompane .bottomrightpane {
+        display: inline-block;
+        width: 300px;
+        height: 300px;
+        margin-left: 10px;
+        padding-left: 0px;
+
+
+    }
+
+
+
+    .bottom {
+        display: inline-block;
+        width: 400px;
+        height: 400px;
+        margin-left: 400px;
+
+    }
+
+
+
+    h1 {
+        text-align: center;
+        padding-top: 60px;
+        font-family: 'Courier New', Courier, monospace;
+
+    }
+
+    .img {
+        /* This section calls the slideInFromrightt animation we defined above  */
+        animation: 2s ease-out .3s 1 lightSpeedIn;
+    }
+</style>
+
+<h1 class="display-5">Welcome to Clakkle Store!</h1>
+<h1 class="display-5">Use your Clakkle points or credit card. </h1>
+
+<br>
+
+
+<div class="bottompane">
+
+    <div class="bottomleftpane">
+
+
+        <h4>
+            </a>
+            <image src='{% static "products/images/boat.png" %}'>
+                $10
+                mug
+                <a href="">
+                    Buy Now </a>
+        </h4>
+
+        <h4>
+            <image src='{% static "products/images/boat.png" %}'>
+                $10
+                tshirt
+                <a href="">
+                    Buy Now
+                </a>
+        </h4>
+        <h4>
+            </a>
+            <img src='{% static "products/images/boat.png" %}'>
+            $10
+            mug
+            <a href="">
+                Buy Now </a>
+        </h4>
+
+        <h4>
+            <img src='{% static "products/images/boat.png" %}'>
+            $10
+            tshirt
+            <a href="">
+                Buy Now
+            </a>
+        </h4>
+    </div>
+
+
+    <div class="bottomrightpane">
+
+        <h4>
+
+            <img src='{% static "products/images/boat.png" %}'>
+            $10
+            20mins
+            <a href="">
+                Buy Now
+            </a>
+        </h4>
+
+        <h4>
+            <img src='{% static "products/images/boat.png" %}'>
+            $6
+            10mins
+            <a href="">
+                Buy Now
+            </a>
+        </h4>
+        <h4>
+            </a>
+            <image src='{% static "products/images/boat.png" %}'>
+                $10
+                mug
+                <a href="">
+                    Buy Now
+                </a>
+        </h4>
+
+        <h4>
+            <image src='{% static "products/images/boat.png" %}'>
+                $10
+                tshirt
+                <a href="">
+                    Buy Now
+                </a>
+        </h4>
+    </div>
+
+    <div class="bottomrightpane">
+
+        <h4>
+
+            <image src='{% static "products/images/boat.png" %}'>
+                $10
+                mug
+                <a href="">
+                    Buy Now
+                </a>
+        </h4>
+
+        <h4>
+            <image src='{% static "products/images/boat.png" %}'>
+                $10
+                tshirt
+                <a href="">
+                    Buy Now
+                </a>
+        </h4>
+        <h4>
+            </a>
+            <image src='{% static "products/images/boat.png" %}'>
+                $10
+                mug
+                <a href="">
+                    Buy Now
+                </a>
+        </h4>
+
+        <h4>
+            <image src='{% static "products/images/boat.png" %}'>
+                $10
+                tshirt
+                <a href="">
+                    Buy Now
+                </a>
+        </h4>
+    </div>
+
+
+    <h1>
+        <a href="{% url 'products:add' %}">
+            more Clakkle items you love
+        </a>
+    </h1>
+
+</div>
+
+
+
+
+
+<div class="bottom">
+    <h2>Items in Your Shopping Cart</h2>
+    <h4>
+        <image src='{% static "products/images/boat.png" %}'>
+            $30
+            tshirt
+            <a href="">
+
+                remove
+            </a>
+    </h4>
+    <h4>
+        <image src='{% static "products/images/boat.png" %}'>
+            $10
+            mug
+            <a href="">
+
+                remove
+            </a>
+    </h4>
+    <h4>
+        <image src='{% static "products/images/boat.png" %}'>
+            $10
+            hat
+            <a href="">
+
+                remove
+            </a>
+    </h4>
+
+    <h1>
+        <a href="{% url 'products:cart' %}">
+
+
+            Checkout
+        </a>
+    </h1>
+
+</div>
+
+{% endblock content %}

@@ -1,0 +1,402 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}
+
+        {% endblock title %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+        integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="{% static 'users/css/style.css' %}">
+    <style>
+        body {
+            background-color: sandybrown;
+            width: auto;
+            height: auto;
+            color: whitesmoke;
+        }
+
+        .container {
+            background-color: rgb(95, 4, 4);
+            width: 990px;
+            height: 980px;
+            margin: auto;
+            padding: 20px 20px 20px 20px;
+            border: 0px solid whitesmoke;
+            border-radius: 0px;
+            margin-bottom: 0px;
+            margin-top: 0px;
+        }
+
+
+        .jumbotron {
+            background-color: black;
+            padding: 30px 10px 10px 10px;
+            width: auto;
+            height: auto;
+            margin-bottom: 0px;
+            border-radius: 0px;
+
+        }
+
+        .tophead,
+        ul,
+        li {
+            padding: 30px 0px 10px 0px;
+            display: inline-block;
+            vertical-align: top;
+            color: white;
+            font-size: 28px;
+            font-family: monospace;
+            margin-left: 50px;
+        }
+
+        .tophead {
+            margin-left: 250px;
+            margin-top: 0px;
+        }
+
+        footer.fixed-bottom,
+        dl,
+        dd {
+            color: rgb(14, 81, 126);
+            display: inline-block;
+            vertical-align: top;
+            text-align: center;
+            padding: 2px 30px 2px 30px;
+            font-size: 18px;
+
+        }
+
+
+        footer.fixed-bottom {
+            background-color: azure;
+            width: auto;
+            height: 40px;
+        }
+
+        @-webkit-keyframes lightSpeedIn {
+            from {
+                -webkit-transform: translate3d(100%, 0, 0) skewX(-30deg);
+                transform: translate3d(100%, 0, 0) skewX(-30deg);
+                opacity: 0;
+            }
+
+            60% {
+                -webkit-transform: skewX(20deg);
+                transform: skewX(20deg);
+                opacity: 1;
+            }
+
+            80% {
+                -webkit-transform: skewX(-5deg);
+                transform: skewX(-5deg);
+            }
+
+            to {
+                -webkit-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
+            }
+        }
+
+        @keyframes lightSpeedIn {
+            from {
+                -webkit-transform: translate3d(100%, 0, 0) skewX(-30deg);
+                transform: translate3d(100%, 0, 0) skewX(-30deg);
+                opacity: 0;
+            }
+
+            60% {
+                -webkit-transform: skewX(20deg);
+                transform: skewX(20deg);
+                opacity: 1;
+            }
+
+            80% {
+                -webkit-transform: skewX(-5deg);
+                transform: skewX(-5deg);
+            }
+
+            to {
+                -webkit-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
+            }
+        }
+
+        .lightSpeedIn {
+            -webkit-animation-name: lightSpeedIn;
+            animation-name: lightSpeedIn;
+            -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+        }
+
+
+        @-webkit-keyframes fadeInDown {
+            from {
+                opacity: 0;
+                -webkit-transform: translate3d(0, -100%, 0);
+                transform: translate3d(0, -100%, 0);
+            }
+
+            to {
+                opacity: 1;
+                -webkit-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                -webkit-transform: translate3d(0, -100%, 0);
+                transform: translate3d(0, -100%, 0);
+            }
+
+            to {
+                opacity: 1;
+                -webkit-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
+            }
+        }
+
+        .fadeInDown {
+            -webkit-animation-name: fadeInDown;
+            animation-name: fadeInDown;
+        }
+
+        @keyframes rubberBand {
+            from {
+                -webkit-transform: scale3d(1, 1, 1);
+                transform: scale3d(1, 1, 1);
+            }
+
+            30% {
+                -webkit-transform: scale3d(1.25, 0.75, 1);
+                transform: scale3d(1.25, 0.75, 1);
+            }
+
+            40% {
+                -webkit-transform: scale3d(0.75, 1.25, 1);
+                transform: scale3d(0.75, 1.25, 1);
+            }
+
+            50% {
+                -webkit-transform: scale3d(1.15, 0.85, 1);
+                transform: scale3d(1.15, 0.85, 1);
+            }
+
+            65% {
+                -webkit-transform: scale3d(0.95, 1.05, 1);
+                transform: scale3d(0.95, 1.05, 1);
+            }
+
+            75% {
+                -webkit-transform: scale3d(1.05, 0.95, 1);
+                transform: scale3d(1.05, 0.95, 1);
+            }
+
+            to {
+                -webkit-transform: scale3d(1, 1, 1);
+                transform: scale3d(1, 1, 1);
+            }
+        }
+
+        .rubberBand {
+            -webkit-animation-name: rubberBand;
+            animation-name: rubberBand;
+        }
+
+
+
+        @-webkit-keyframes bounce {
+
+            from,
+            20%,
+            53%,
+            80%,
+            to {
+                -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+                animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+                -webkit-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
+            }
+
+            40%,
+            43% {
+                -webkit-animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+                animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+                -webkit-transform: translate3d(0, -30px, 0);
+                transform: translate3d(0, -30px, 0);
+            }
+
+            70% {
+                -webkit-animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+                animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+                -webkit-transform: translate3d(0, -15px, 0);
+                transform: translate3d(0, -15px, 0);
+            }
+
+            90% {
+                -webkit-transform: translate3d(0, -4px, 0);
+                transform: translate3d(0, -4px, 0);
+            }
+        }
+
+        @keyframes bounce {
+
+            from,
+            20%,
+            53%,
+            80%,
+            to {
+                -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+                animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+                -webkit-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
+            }
+
+            40%,
+            43% {
+                -webkit-animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+                animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+                -webkit-transform: translate3d(0, -30px, 0);
+                transform: translate3d(0, -30px, 0);
+            }
+
+            70% {
+                -webkit-animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+                animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+                -webkit-transform: translate3d(0, -15px, 0);
+                transform: translate3d(0, -15px, 0);
+            }
+
+            90% {
+                -webkit-transform: translate3d(0, -4px, 0);
+                transform: translate3d(0, -4px, 0);
+            }
+        }
+
+        .bounce {
+            -webkit-animation-name: bounce;
+            animation-name: bounce;
+            -webkit-transform-origin: center bottom;
+            transform-origin: center bottom;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="jumbotron">
+
+        <a href="{% url 'users:logo' %}">
+            <img src='{% static "users/images/ogo.png" %}'>
+        </a>
+
+        <ul class="tophead">
+            <a href="{% url 'users:home' %}">
+                <li>Home</li>
+            </a>
+
+            <a href="{% url 'users:logo' %}">
+                <li>About</li>
+            </a>
+
+            {% if request.user.is_authenticated %}
+
+            <a href="{% url 'dashboard:index' %}">
+                <li>Dashboard</li>
+            </a>
+
+
+
+            <a href="{% url 'users:logout' %}">
+                <li>Logout</li>
+            </a>
+            {% else %}
+            <a href="{% url 'login' %}">
+                <li>Login</li>
+            </a>
+            {% endif %}
+
+        </ul>
+
+    </div>
+
+    <div class="container">
+        {% block content %}{% endblock content %}
+
+
+    </div>
+
+    <footer class="fixed-bottom">
+
+        <dl id="footer">
+            <a href="{% url 'users:home' %}">
+                <dd>Home</dd>
+            </a>
+            <a href="{% url 'users:logo' %}">
+                <dd>About</dd>
+            </a>
+            <a href="">
+                <dd>Contact</dd>
+            </a>
+
+            {% if request.user.is_authenticated %}
+
+            <a href="{% url 'dashboard:index' %}">
+                <dd>Dashboard </dd>
+            </a>
+
+            <a href="{% url 'products:create' %}">
+                <dd>Store </dd>
+            </a>
+            <a href="{% url 'dashboard:sitemap' %}">
+                <dd> sitemap </dd>
+            </a>
+
+
+            {% else %}
+
+            <a href="{% url 'users:signup' %}">
+                <dd> Sign Up </dd>
+            </a>
+            <a href="{% url 'login' %}">
+                <dd> Login </dd>
+            </a>
+            {% endif %}
+
+        </dl>
+
+
+    </footer>
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
+        integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
+        integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
+        integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+        crossorigin="anonymous"></script>
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+    {% block aplay %}
+
+    {% endblock aplay %}
+
+</body>
+
+</html>

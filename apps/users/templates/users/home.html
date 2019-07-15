@@ -1,0 +1,207 @@
+{% extends "users/base.html" %}
+
+{% block title %}
+Home
+{% endblock title %}
+
+
+{% load staticfiles %}
+
+{% block content %}
+
+
+<style>
+    .container {
+        width: 990px;
+        height: 980px;
+    }
+
+    .lowerpaneone {
+
+        margin-left: 110px;
+        margin-top: 200px;
+    }
+
+    .lowerpaneone h2 {
+
+        margin-top: 20px;
+        height: 70px;
+        width: 700px;
+        border-radius: 20px;
+        font-family: monospace;
+        padding-top: 20px;
+        padding-left: 20px;
+
+
+    }
+
+
+    h1 {
+        margin-top: 70px;
+        color: salmon;
+        font-size: 80px;
+        text-align: Center;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        width: 950px;
+        height: 0px;
+
+
+    }
+
+    .lowerpanetwo {
+        width: 200px;
+        height: 20px;
+        margin-left: 110px;
+
+
+
+    }
+
+
+    .box2 {
+        width: 200px;
+        height: 100px;
+        padding-bottom: 40px;
+    }
+
+    .lowerpanetwo .box2 h2 {
+        display: inline-block;
+        height: 70px;
+        width: 700px;
+        border-radius: 20px;
+        font-family: monospace;
+        padding-top: 20px;
+        padding-left: 20px;
+        padding-bottom: 40px;
+
+
+
+    }
+
+    img {
+        /* This section calls the slideInFromrightt animation we defined above */
+        animation: 1s ease-out .3s 20 bounce;
+    }
+
+
+    h2 {
+        /* This section calls the slideInFromrightt animation we defined above */
+        animation: 3s ease-out .3s 1 fadeInDown;
+    }
+
+    h1 {
+        /* This section calls the slideInFromrightt animation we defined above */
+        animation: 5s ease-out .3s 1 fadeInDown;
+    }
+</style>
+
+<h1>Welcome to ClaKꓘle</h1>
+
+
+<div class="lowerpaneone">
+    <a href="{% url 'squabb:record' %}" class="btn btn-outline-danger btn-lg">
+        <h2>Record a Clakkle</h2>
+    </a>
+    </a>
+    <a href="{% url 'squabb:listen' %}" class="btn btn-outline-primary btn-lg">
+        <h2>Listen in On a
+            Clakkle</h2>
+    </a>
+
+    {% if request.user.is_authenticated %}
+    <a href="{% url 'interests:yourint' %}" class="btn btn-outline-warning btn-lg">
+        <h2>Find Your Interests </h2>
+    </a>
+
+    {% else %}
+    <a href="{% url 'interests:availableint' %}" class="btn btn-outline-warning btn-lg">
+        <h2>Find Your Interests </h2>
+    </a>
+    {% endif %}
+
+
+</div>
+
+<div class="lowerpanetwo">
+    {% if not request.user.is_authenticated %}
+
+    <div class="box2">
+        <a href="{% url 'users:signup' %}" class="btn btn-outline-success btn-lg">
+            <h2>Sign Up</h2>
+        </a>
+    </div>
+    <div class="box2">
+        <a href="{% url 'login' %}" class="btn btn-outline-success btn-lg">
+            <h2>Log In</h2>
+        </a>
+    </div>
+
+
+    {% endif %}
+</div>
+
+</div>
+
+
+{% endblock content %}
+
+{% block aplay %}
+
+<script type="text/javascript">
+
+    function uploadAudio(audioBlob) {
+        var fd = new FormData();
+        fd.append('file_name', 'audio.wav');
+        fd.append('recording', audioBlob);
+        $.ajax({
+            type: "POST",
+            url: "/save/audio/",
+            data: fd,
+            processData: false,
+            contentType: false
+        }).done(function (data) {
+            console.log(data);
+            window.location.reload();
+        });
+    }
+
+
+    $(document).ready(function () {
+        var recording_status = false;
+        var mediaRecorder = null;
+
+        $("#btnRecord").on('click', function () {
+            if (recording_status == false) {
+                recording_status = true;
+                $("#btnRecord").text("Stop Recording");
+                navigator.mediaDevices.getUserMedia({ audio: true }).then(stream => {
+                    mediaRecorder = new MediaRecorder(stream);
+                    mediaRecorder.start();
+
+                    const audioChunks = [];
+                    mediaRecorder.addEventListener("dataavailable", event => {
+                        audioChunks.push(event.data);
+                    });
+
+                    mediaRecorder.addEventListener("stop", () => {
+                        const audioBlob = new Blob(audioChunks);
+                        const audioUrl = URL.createObjectURL(audioBlob);
+                        console.log(audioUrl);
+                        console.log(audioBlob);
+                        uploadAudio(audioBlob);
+                        //const audio = new Audio(audioUrl);
+                        //audio.play();
+                    });
+                });
+            }
+            else {
+                recording_status = false;
+                mediaRecorder.stop();
+                $("#btnRecord").text("Record Clakkle");
+            }
+        });
+    });
+
+</script>
+
+{% endblock aplay %}

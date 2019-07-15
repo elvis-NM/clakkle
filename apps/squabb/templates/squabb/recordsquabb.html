@@ -1,0 +1,218 @@
+{% extends "users/base.html" %}
+
+{% block title %}recordclakkle{% endblock title %}
+
+{% load staticfiles %}
+
+{% block content %}
+
+<style>
+    .container {
+        background-color: red;
+    }
+
+    h1 {
+        text-align: center;
+        margin-bottom: 40px;
+        font-family: 'Courier New', Courier, monospace;
+    }
+
+    .squabbcenterpane {
+        display: inline-block;
+        width: 1500;
+        height: 1000;
+        margin-left: 200px;
+        margin-top: 100px;
+        padding-bottom: 60px;
+    }
+
+    .squabbcenterpane .btn {
+        margin-bottom: 100px;
+
+    }
+
+    .squabbcenterpane .squabbcenterpaneone .squabbcenterpanetwo {
+        display: inline-block;
+    }
+
+    .squabbmajoritem {
+        margin-left: 80px;
+        padding-top: 80px;
+
+    }
+
+    h1 {
+        /* This section calls the slideInFromrightt animation we defined above */
+        animation: 5s ease-out .3s 1 fadeInDown;
+    }
+
+
+
+    @keyframes rubberBand {
+        from {
+            -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+        }
+
+        30% {
+            -webkit-transform: scale3d(1.25, 0.75, 1);
+            transform: scale3d(1.25, 0.75, 1);
+        }
+
+        40% {
+            -webkit-transform: scale3d(0.75, 1.25, 1);
+            transform: scale3d(0.75, 1.25, 1);
+        }
+
+        50% {
+            -webkit-transform: scale3d(1.15, 0.85, 1);
+            transform: scale3d(1.15, 0.85, 1);
+        }
+
+        65% {
+            -webkit-transform: scale3d(0.95, 1.05, 1);
+            transform: scale3d(0.95, 1.05, 1);
+        }
+
+        75% {
+            -webkit-transform: scale3d(1.05, 0.95, 1);
+            transform: scale3d(1.05, 0.95, 1);
+        }
+
+        to {
+            -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+        }
+    }
+
+    .rubberBand {
+        -webkit-animation-name: rubberBand;
+        animation-name: rubberBand;
+    }
+
+    img {
+        /* This section calls the slideInFromrightt animation we defined above */
+        animation: 1s ease-out .3s 10 rubberBand;
+    }
+</style>
+
+<div class="squabbheader">
+
+</div>
+
+
+<h1 class="display-5">Record !
+</h1>
+
+<h1 class="display-5">Try out a professional or Comic voice!
+</h1>
+
+
+
+<div class="squabbmajoritem">
+    {% if request.user.is_authenticated %}
+    <button type="button" class="btn btn-outline-danger btn-lg" id="btnRecord">Record Clakkle</button>
+    {% else %}
+    <a href="{% url 'login' %}?next=/squabble/squabb/record/" class="btn btn-outline-danger btn-lg">Record
+        Clakkle</a>
+    {% endif %}
+    <button type="button" class="btn btn-outline-success btn-lg">Play Clakkle</button>
+    <button type="button" class="btn btn-outline-primary btn-lg">Rewind Clakkle</button>
+    <button type="button" class="btn btn-outline-warning btn-lg">Delete Clakkle</button>
+
+</div>
+
+
+<div class="squabbcenterpane">
+    <h1>Choose Voice!</h1>
+    <div class="squabbcenterpaneone">
+        <button type="button" class="btn btn-outline-basic btn-lg">Your Voice</button>
+
+        <button type="button" class="btn btn-outline-basic btn-lg">Cartoon Character</button>
+
+
+        <button type="button" class="btn btn-outline-basic btn-lg">Movie Star</button>
+
+
+
+    </div>
+    <div class="squabbcenterpanetwo">
+        <button type="button" class="btn btn-outline-basic btn-lg">Foreign Language</button>
+
+        <button type="button" class="btn btn-outline-basic btn-lg">Local</button>
+
+        <button type="button" class="btn btn-outline-basic btn-lg">Translate</button>
+
+
+    </div>
+
+</div>
+{% endblock content %}
+
+{% block aplay %}
+<script type="text/javascript">
+
+    function uploadAudio(audioBlob) {
+        var fd = new FormData();
+        fd.append('file_name', 'audio.wav');
+        fd.append('recording', audioBlob);
+        $.ajax({
+            type: "POST",
+            url: "{% url 'squabb:save_audio' %}",
+            data: fd,
+            processData: false,
+            contentType: false
+        }).done(function (data) {
+            console.log(data);
+            window.location.reload();
+        });
+    }
+
+
+    $(document).ready(function () {
+        var recording_status = false;
+        var mediaRecorder = null;
+
+        $("#btnRecord").on('click', function () {
+            if (recording_status == false) {
+                recording_status = true;
+                $("#btnRecord").text("Stop Recording");
+                navigator.mediaDevices.getUserMedia({ audio: true }).then(stream => {
+                    mediaRecorder = new MediaRecorder(stream);
+                    mediaRecorder.start();
+
+                    const audioChunks = [];
+                    mediaRecorder.addEventListener("dataavailable", event => {
+                        audioChunks.push(event.data);
+                    });
+
+                    mediaRecorder.addEventListener("stop", () => {
+                        const audioBlob = new Blob(audioChunks);
+                        const audioUrl = URL.createObjectURL(audioBlob);
+                        console.log(audioUrl);
+                        console.log(audioBlob);
+                        uploadAudio(audioBlob);
+                        //const audio = new Audio(audioUrl);
+                        //audio.play();
+                    });
+
+
+                    window.setTimeout(function () {
+                        if (recording_status)
+                            mediaRecorder.stop();
+                    }, 120000);
+
+
+                });
+            }
+            else {
+                recording_status = false;
+                mediaRecorder.stop();
+                $("#btnRecord").text("Record Clakkle");
+            }
+        });
+    });
+
+</script>
+
+{% endblock aplay %}

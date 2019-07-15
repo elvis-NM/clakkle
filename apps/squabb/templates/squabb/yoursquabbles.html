@@ -1,0 +1,92 @@
+{% extends "users/base.html" %}
+
+{% block title %}yourclakkles{% endblock title %}
+
+{% load staticfiles %}
+
+{% block content %}
+
+<style>
+    .container {
+        width: 990px;
+        height: 1000px;
+    }
+
+    .middlepane .middlecenterpane {
+        display: inline-block;
+        vertical-align: top;
+        width: 360px;
+        margin-left: 0px;
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+
+    h1 {
+        text-align: center;
+        margin-top: 60px;
+        margin-bottom: 60px;
+        font-family: 'Courier New', Courier, monospace;
+
+    }
+
+
+    img {
+        /* This section calls the slideInFromrightt animation we defined above */
+        animation: 2s ease-out .3s 1 lightSpeedIn;
+    }
+
+    h1 {
+        /* This section calls the slideInFromrightt animation we defined above */
+        animation: 5s ease-out .3s 1 fadeInDown;
+    }
+</style>
+
+
+<h1 class="display-5">Welcome to Your Clakkle list, {% if request.user.is_authenticated %}
+    {{request.user.first_name}}
+    {% else %}
+    Guest
+    {% endif %}</h1>
+
+
+<div class="middlepane">
+    <div class="middlecenterpane">
+        <h2>Your Clakkle list</h2>
+
+        {% for item in recordings %}
+
+        <h3>
+            {% if request.user.is_authenticated and request.user.pk == item.creator.pk %}
+
+            <audio style="displa:none;" id="{{item.pk}}" src="/media{{item.voicefile}}"></audio>
+            <button type="button" class="btn btn-outline-success btn-lg"
+                onclick="document.getElementById('{{item.pk}}').play()">Play</button>
+            recording
+            <a href="{% url 'squabb:delete_audio' %}?id={{item.pk}}">delete</a>
+            <a href="{% url 'dashboard:fan' %}">fan</a>
+            {% endif %}
+
+
+        </h3>
+
+        {% endfor %}
+        <a href="{% url 'dashboard:index' %}">
+            Dashboard
+        </a>
+
+
+
+
+
+    </div>
+
+
+</div>
+
+<script>
+    function play(id) {
+        $("#" + id).play();
+    }
+</script>
+
+{% endblock content %}

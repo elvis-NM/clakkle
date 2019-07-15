@@ -1,0 +1,89 @@
+{% extends "users/base.html" %}
+
+{% block title %}{% endblock title %}
+
+{% load staticfiles %}
+
+{% block content %}
+
+<style>
+    h1 {
+        text-align: center;
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+
+    h2 {
+        text-align: center;
+        -webkit-text-fill-color: aliceblue;
+    }
+
+    .squabbmajoritem {
+        margin-left: 80px;
+
+    }
+
+
+    img {
+        /* This section calls the slideInFromrightt animation we defined above */
+        animation: 2s ease-out .3s 1 lightSpeedIn;
+    }
+
+
+
+    h1 {
+        /* This section calls the slideInFromrightt animation we defined above */
+        animation: 5s ease-out .3s 1 fadeInDown;
+    }
+</style>
+
+
+<h1 class="display-4">Site Map! </h1>
+
+<div class="squabbheader">
+
+    <a href="{% url 'products:create' %}">
+        <h2 class="display-5">store</h2>
+    </a>
+    <a href="{% url 'products:add' %}">
+        <h2 class="display-5">shop more items</h2>
+    </a>
+    <a href="{% url 'products:checkcart'  %}">
+        <h2 class="display-5">cart</h2>
+    </a>
+    <a href="{% url 'products:cart' %}">
+        <h2 class="display-5">shoppingcart</h2>
+    </a>
+    <a href="{% url 'dashboard:fan' %}">
+        <h2 class="display-5">fan</h2>
+    </a>
+    <a href="{% url 'dashboard:fanpage' %}">
+        <h2 class="display-5">fanpage</h2>
+    </a>
+    <a href="{% url 'dashboard:follow' %}">
+        <h2 class="display-5">follow</h2>
+    </a>
+    <a href="{% url 'dashboard:followingpage' %}">
+        <h2 class="display-5">following</h2>
+    </a>
+    <a href="{% url 'interests:yourint' %}">
+        <h2 class="display-5">your interests </h2>
+    </a>
+    <a href="{% url 'interests:availableint' %}">
+        <h2 class="display-5">available interetsts </h2>
+        <a href="{% url 'squabb:record' %}">
+            <h2 class="display-5">record</h2>
+        </a>
+        <a href="{% url 'squabb:listen' %}">
+            <h2 class="display-5">listen</h2>
+        </a>
+        <a href="{% url 'squabb:popular' %}">
+            <h2 class="display-5">popular </h2>
+        </a>
+        <a href="{% url 'squabb:yoursquabbs' %}">
+            <h2 class="display-5">your Clakkles </h2>
+        </a>
+    </a>
+
+
+    {% endblock content %}

@@ -1,0 +1,299 @@
+{% extends "users/base.html" %}
+
+{% block title %}shoppingcart{% endblock title %}
+
+{% load staticfiles %}
+
+{% block content %}
+
+
+<style>
+    .container {
+        height: 1350px;
+    }
+
+    .a {
+        padding: 0px 0px 0px 0px;
+    }
+
+    h1 {
+        margin-top: 0px;
+        text-align: center;
+
+
+    }
+
+    h3 {
+        margin-top: 0px;
+        text-align: left;
+
+
+    }
+
+    h5 {
+        margin-top: 0px;
+        text-align: right;
+
+    }
+
+
+    .bottompane {
+        display: inline-block;
+        vertical-align: top;
+        width: auto;
+        margin-top: 60px;
+
+
+    }
+
+    .bottompane .bottomleftpane {
+        display: inline-block;
+        vertical-align: top;
+        width: auto;
+        height: auto;
+        padding-left: 0px;
+        padding-right: 40px;
+        padding-bottom: 60px;
+
+    }
+
+    .bottompane .bottomrightpane {
+        display: inline-block;
+        vertical-align: top;
+        width: auto;
+        height: auto;
+        padding-bottom: 60px;
+
+
+
+    }
+
+
+
+    .righthomebuttonsignup h1 {
+        text-align: right
+    }
+
+    /*
+        img {
+             This section calls the slideInFromrightt animation we defined above 
+            animation: 2s ease-out .3s 1 lightSpeedIn;
+        }
+*/
+    .checkout {
+        margin-left: 400px;
+    }
+</style>
+
+
+
+
+<a href="{% url 'products:checkcart' %}">
+
+    <h5>
+        <div class="checkout">
+            <img src='{% static "products/images/checkout.png" %}'> <br>
+        </div>
+
+        Cart
+    </h5>
+</a>
+
+
+
+<h1 class="display-5">CheckOut!</h1>
+
+
+
+
+<div class="bottompane">
+
+    <div class="bottomleftpane">
+
+
+
+        <h3 class="display-">Items in Your Cart
+        </h3><br><br>
+        <h4>
+            <img src='{% static "products/images/boat.png" %}'>
+            $30
+            tshirt
+            <a href="">
+
+                remove
+            </a>
+        </h4>
+        <h4>
+            <img src='{% static "products/images/boat.png" %}'>
+            $10
+            mug
+            <a href="">
+
+                remove
+            </a>
+        </h4>
+        <h4>
+            <img src='{% static "products/images/boat.png" %}'>
+            $10
+            mug
+            <a href="">
+
+                remove
+            </a>
+        </h4>
+        <h4>
+            <img src='{% static "products/images/boat.png" %}'>
+            $10
+            mug
+            <a href="">
+
+                remove
+            </a>
+        </h4>
+        <h4>
+            <img src='{% static "products/images/boat.png" %}'>
+            $10
+            mug
+            <a href="">
+
+                remove
+            </a>
+        </h4>
+
+        <h4>
+            <img src='{% static "products/images/boat.png" %}'>
+            $10
+            hat
+            <a href="">
+
+                remove
+            </a>
+        </h4><br><br>
+        <h4>
+
+            <a href="{% url 'products:add' %}">
+                <h4> Add More Items</h4>
+            </a>
+        </h4><br><br>
+        <h4>Total balance : <a href="">
+                1000
+            </a></h4><br><br>
+
+        <h4>Apply points
+
+            <select>
+
+                <option value="5000">5000</option>
+                <option value="3000">3000</option>
+                <option value="2000">2000</option>
+                <option value="1000">1000</option>
+                <option value="1000"> 0</option>
+            </select>
+
+        </h4><br><br>
+        <h4>Total balance after points : <a href="">
+                300
+            </a></h4>
+    </div>
+
+
+    <div class="bottomrightpane">
+
+
+        <h2 class="display-5">Use your Clakkle Points or Credit Card!</h2><br>
+        <h2 class="display-5">Your total Clakkle Points!
+
+            <select>
+
+                <option value="5000">5000</option>
+                <option value="3000">3000</option>
+                <option value="2000">2000</option>
+                <option value="1000">1000</option>
+                <option value="1000"> 0</option>
+            </select>
+
+        </h2><br><br><br>
+
+
+
+        <h2 class="display-5">Enter Your Payment Information here</h2>
+
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+
+        <form action="{% url 'users:create' %}" method='post'>
+            {% csrf_token %}
+            <div class="form-group">
+                <p> <label for="first_name"></label> </p>
+                <P> <input type="text" class="form-control" name="first_name" placeholder="enter your first name">
+                </p>
+            </div>
+            <div class="form-group ">
+                <p> <label for="last_name"></label> </p>
+                <p> <input class="form-control" type="text" class="form-control" name="last_name"
+                        placeholder="enter your last name">
+                </p>
+            </div>
+            <div>
+                <div class="form-group">
+                    <p> <label for="Address"></label> </p>
+                    <p> <input class="form-control" type="text" class="form-control" name="address"
+                            placeholder="enter your Stree Address">
+                    </p>
+                </div>
+
+                <div class="form-group">
+                    <p> <label for="City and state"></label> </p>
+                    <p> <input class="form-control" type="text" class="form-control" name="city"
+                            placeholder="Enter your City and State ">
+
+                </div>
+                <div class="form-group ">
+                    <p> <label for="Zip Code"></label> </p>
+                    <p> <input class="form-control" type="text" class="form-control" name="zip"
+                            placeholder="Enter your Zip Code">
+
+                </div>
+            </div>
+
+            <div>
+                <div class="form-group">
+                    <p> <label for="credit card number"></label> </p>
+                    <p> <input class="form-control" type="text" class="form-control" name="creditcard "
+                            placeholder="Enter your Creditcard Number">
+                </div>
+
+                <div class="form-group ">
+                    <p> <label for="Exp date"></label> </p>
+                    <p> <input class="form-control" type="text" class="form-control" name="exp date"
+                            placeholder="Enter ythe Exp Date ">
+
+                </div>
+                <div class="form-group ">
+                    <p> <label for="CCV"></label> </p>
+                    <p> <input class="form-control" type="text" class="form-control" name="CCV"
+                            placeholder="Enter your CCV at the back of your card ">
+
+                </div>
+            </div>
+
+
+
+
+            <div class="lastlineitem">
+                <p> <input type="submit" value="Buy Now " class="btn btn-success btn-block"> </p>
+            </div>
+        </form>
+
+    </div>
+
+
+</div>
+
+
+{% endblock content %}

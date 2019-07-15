@@ -1,0 +1,73 @@
+{% extends "users/base.html" %}
+
+{% block title %}following{% endblock title %}
+
+{% load staticfiles %}
+{% block content %}
+
+
+
+
+<style>
+    .middlepane .middlecenterpane {
+        display: inline-block;
+        vertical-align: top;
+        width: 300px;
+        height: auto;
+        margin-top: 40px;
+        margin-bottom: 40px;
+
+
+
+    }
+
+    h1 {
+        text-align: center;
+        margin-bottom: 30px;
+        font-family: 'Courier New', Courier, monospace;
+
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 30px;
+        font-family: 'Courier New', Courier, monospace;
+
+    }
+
+    img {
+        /* This section calls the slideInFromrightt animation we defined above */
+        animation: 2s ease-out .3s 1 lightSpeedIn;
+    }
+
+    h1 {
+        /* This section calls the slideInFromrightt animation we defined above */
+        animation: 5s ease-out .3s 1 fadeInDown;
+    }
+</style>
+<h1 class="display-4">Those you are following!</h1>
+
+
+<div class="middlepane">
+
+
+    <div class="middlecenterpane">
+        <h2>Following list</h2>
+
+    </div>
+
+
+    <div class="middlecenterpane">
+        <h2> Following list</h2>
+
+    </div>
+
+    <div class="middlecenterpane">
+        <h2> Following list</h2>
+
+    </div>
+</div>
+<a href="{% url 'dashboard:index' %}">
+    Dashboard
+</a>
+{% endblock content %}

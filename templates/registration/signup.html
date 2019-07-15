@@ -1,0 +1,92 @@
+{% extends "users/base.html" %}
+
+{% block title %}login{% endblock title %}
+
+{% load staticfiles %}
+
+{% block content %}
+<style>
+    h3 {
+        text-align: right;
+        padding-bottom: 40px;
+        padding-right: 100px;
+
+    }
+
+    h2 {
+        text-align: right;
+        margin-bottom: 80px;
+        margin-top: 60px;
+
+    }
+
+    h1 {
+        /* This section calls the slideInFromrightt animation we defined above */
+        animation: 5s ease-out .3s 1 fadeInDown;
+    }
+
+    img {
+        /* This section calls the slideInFromrightt animation we defined above */
+        animation: 2s ease-out .3s 1 lightSpeedIn;
+    }
+</style>
+
+
+<h1 class="display-4">Welcome to Clakkle!</h1>
+<h1 class="display-4">Already have an account ? <a href="{% url 'login' %}" class="btn btn-outline-success btn-lg">
+        <h4>Login</h4>
+
+
+    </a> </h1>
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+<form method='post'>
+    {% csrf_token %}
+    <div class="form-group">
+        <p> <label for="username">First Name:</label> </p>
+        <p>
+            <input class="form-control" type="text" class="form-control" name="first_name"
+                placeholder="enter your first name" />
+            {{form.first_name.errors}}
+        </p>
+    </div>
+
+    <div class="form-group">
+        {{form.last_name.errors}}
+        <p> <label for="username">Last Name:</label> </p>
+        <p>
+            <input class="form-control" type="text" class="form-control" name="last_name"
+                placeholder="enter your last name" />
+
+        </p>
+    </div>
+
+    <div class="form-group">
+        <p> <label for="username">Username:</label> </p>
+        <p>
+            <input class="form-control" type="text" class="form-control" name="username"
+                placeholder="enter your username" />
+            {{form.username.errors}}
+        </p>
+    </div>
+
+    <div class="form-group">
+        <p> <label for="password">Password:</label> </p>
+        <p>
+            <input type="password" class="form-control" name="password" placeholder="password">
+            {{form.password.errors}}
+        </p>
+    </div>
+
+    <div>
+        <p> <input type="submit" value="Signup" class="btn btn-success btn-block"> </p>
+    </div>
+</form>
+
+{% endblock content %}
