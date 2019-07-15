@@ -24,6 +24,6 @@ urlpatterns = [
     url(r"^squabble/squabb/", include("apps.squabb.urls", namespace="squabb")),
     url(r"^squabble/interests/", include("apps.interests.urls", namespace="interests")),
     url(r"^users/", include("apps.users.urls", namespace="users")),
-    url('accounts/', include('django.contrib.auth.urls')),
+    url("accounts/", include("django.contrib.auth.urls")),
     url(r"^", include("apps.dashboard.urls", namespace="dashboard")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -95,6 +95,10 @@ def home(req):
     return render(req, "users/home.html")
 
 
+def portfoliohome(req):
+    return redirect("http://18.220.137.34/")
+
+
 def edit(request, user_id=None):
     if request.method == "GET":
         return render(request, "users/edit.html")
